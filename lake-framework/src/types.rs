@@ -128,12 +128,12 @@ pub enum LakeError {
         #[from]
         error_message: serde_json::Error,
     },
-    #[error("AWS S3 error")]
+    #[error("AWS S3 error: {error}")]
     AwsGetObjectError {
         #[from]
         error: aws_sdk_s3::types::SdkError<aws_sdk_s3::error::GetObjectError>,
     },
-    #[error("AWS S3 error")]
+    #[error("AWS S3 error: {error}")]
     AwsLisObjectsV2Error {
         #[from]
         error: aws_sdk_s3::types::SdkError<aws_sdk_s3::error::ListObjectsV2Error>,
